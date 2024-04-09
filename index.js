@@ -1,6 +1,6 @@
 import inquirer from 'inquirer';
-import  qr_code = require (' qr-image ');
-
+var qr_png = qr.image(url);
+import qr from 'qr-image';
 
 inquirer
   .prompt([
@@ -19,7 +19,10 @@ inquirer
   var  qr_png  = qr.image (url) ;    
 qr_png . pipe ( require ('fs').createWriteStream (' qr_code.png') ) ;
 
-  
+fs.writeFile('url.txt', url, (err) => {
+  if (err) throw err;
+  console.log('The file has been saved!');
+})
   
   ch((error) => {
     if (error.isTtyError) {
