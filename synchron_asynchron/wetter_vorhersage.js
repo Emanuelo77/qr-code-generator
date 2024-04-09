@@ -18,8 +18,12 @@ function fetchweather(city) {
         });
 }
 async function showWeather(city) {
+    try{
     const message =await fetchweather(city);
     console.log(message);
+    } catch (error) {
+    console.error(error);
+     } 
 }
 showWeather("Berlin");
 showWeather("Paris");
