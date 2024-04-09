@@ -1,4 +1,6 @@
 import inquirer from 'inquirer';
+import  qr_code = require (' qr-image ');
+
 
 inquirer
   .prompt([
@@ -13,7 +15,13 @@ inquirer
     const url = answers.URL
     console.log(url)
   })
-  .catch((error) => {
+  
+  var  qr_png  = qr.image (url) ;    
+qr_png . pipe ( require ('fs').createWriteStream (' qr_code.png') ) ;
+
+  
+  
+  ch((error) => {
     if (error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
     } else {
